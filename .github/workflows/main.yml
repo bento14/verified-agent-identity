@@ -1,22 +1,22 @@
 name: Verify Human Identity
 
 on:
-  workflow_dispatch:
-    inputs:
-      agent_name:
-        description: 'gabutcoy'
-        required: true
-        default: 'gabutcoy'
-      agent_description:
-        description: 'gabutcoy'
-        required: true
-        default: 'gabutcoy AI Agent'
+  workflow_dispatch:
+    inputs:
+      agent_name:
+        description: 'gabutcoy'
+        required: true
+        default: 'gabutcoy'
+      agent_description:
+        description: 'gabutcoy'
+        required: true
+        default: 'gabutcoy AI Agent'
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
+  verify:
+    runs-on: ubuntu-latest
 
-    steps:
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -33,9 +33,9 @@ jobs:
           cd scripts
           npm install
 
-      - name: Step 2 - Create new Ethereum Identity
-        run: node scripts/createNewEthereumIdentity.js
+      - name: Step 2 - Create new Ethereum Identity
+        run: node scripts/createNewEthereumIdentity.js
 
-      - name: Step 3 - Link Human to Agent
-        run: |
-          node scripts/manualLinkHumanToAgent.js --challenge '{"name": "gabutcoy" ,"description":"gabutcoy AI Agent"}'^
+      - name: Step 3 - Link Human to Agent
+        run: |
+          node scripts/manualLinkHumanToAgent.js --challenge '{"name": "gabutcoy", "description": "gabutcoy AI Agent"}'
